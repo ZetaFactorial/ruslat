@@ -217,7 +217,7 @@ Zahar daže skvozj zuby pliunul, rassuždaja o takom skarednom žitje.
 
 — Konečno, vy; vse doma sidite: kak pri vas staneš ubiratj? Ujdite na celyj denj, tak i uberu.
 
-— Vot jesče vydumal čto — ujti! Пodi-ka ty lučše k sebe.
+— Vot jesče vydumal čto — ujti! Podi-ka ty lučše k sebe.
 
 — Da pravo! — nastaival Zahar. — Vot, hotj by segodnia ušli, my by s Anisjej i ubrali vse. I to ne upravimsia vdvojem-to: nado jesče bab naniatj, peremytj vse.
 
@@ -277,13 +277,13 @@ On načal bylo, kriahtia, pripodnimatjsia na posteli, čtob vstatj.
 
 — Kuda nedeli čerez tri! Upravliajusčij govorit, čto črez dve nedeli rabočije pridut: lomatj vse budut… «Sjezžajte, govorit, zavtra ili poslezavtra…»
 
-— Э-e-e! sliškom provorno! Vidiš, jesče čto! Ne sejčas li prikažete? A ty mne ne smej i napominatj o kvartire. Ja už tebe zapretil raz; a ty opiatj. Smotri!
+— E-e-e! sliškom provorno! Vidiš, jesče čto! Ne sejčas li prikažete? A ty mne ne smej i napominatj o kvartire. Ja už tebe zapretil raz; a ty opiatj. Smotri!
 
 — Čto ž mne delatj-to? — otozvalsia Zahar.
 
 — Čto ž delatj? — vot on čem otdelyvajetsia ot menia! — otvečal Ilja Iljič. — On menia sprašivajet! Mne čto za delo? Ty ne bespokoj menia, a tam kak hočeš, tak i rasporiadisj, toljko čtob ne perejezžatj. Ne možet postaratjsia dlia barina!
 
-— Da kak že, batiuška, Ilja Iljič, ja rasporiažusj? — načal miagkim sipenjem Zahar. — Дom-to ne moj: kak že iz čužogo doma ne perejezžatj, koli goniat? Kaby moj dom byl, tak ja by s velikim moim udovoljstvijem…
+— Da kak že, batiuška, Ilja Iljič, ja rasporiažusj? — načal miagkim sipenjem Zahar. — Dom-to ne moj: kak že iz čužogo doma ne perejezžatj, koli goniat? Kaby moj dom byl, tak ja by s velikim moim udovoljstvijem…
 
 — Neljzia li ih ugovoritj kak-nibudj. «My, deskatj, živem davno, platim ispravno».
 

@@ -1,9 +1,10 @@
 import re
+from typing import Callable
 
 from ruslat.conversion_tables import *
 from ruslat.cyrillic_ortho_fixer import regularize
 
-def convert_jer_or_jerj_plus_vowel(word: str):
+def convert_jer_or_jerj_plus_vowel(word: str) -> str:
     """
     <ь/ъ V> -> <j V>
     """
@@ -12,7 +13,7 @@ def convert_jer_or_jerj_plus_vowel(word: str):
     
     return word 
 
-def convert_consonant_plus_jerj(word):
+def convert_consonant_plus_jerj(word: str) -> str:
     """
     <Cь> -> <Cj>
     """
@@ -21,7 +22,7 @@ def convert_consonant_plus_jerj(word):
     
     return word 
 
-def convert_consonant_plus_softvowel(word):
+def convert_consonant_plus_softvowel(word: str) -> str:
     """
     <C я/ю> -> <С ia/iu>
 
@@ -34,7 +35,7 @@ def convert_consonant_plus_softvowel(word):
             word = re.sub(fr"{cyr_con}{cyr_vow}", fr"{lat_con}{lat_vow}", word)
     return word 
 
-def convert_softvowels_after_vowels(word):
+def convert_softvowels_after_vowels(word: str) -> str:
     """
     <V е/ё/ю/я> -> <V je/jë/ju/ja> (V is either vowel or nothing; jer/jerj are not considered vowels.)
     """
@@ -42,22 +43,25 @@ def convert_softvowels_after_vowels(word):
         word = re.sub(fr"{cyr}", fr"{lat}", word)
     return word 
 
-def final_convert_hard_consonants(word):
+def final_convert_hard_consonants(word: str) -> str:
     for cyr_con, lat_con in consonant.items():
         word = re.sub(fr"{cyr_con}", fr"{lat_con}", word)
     return word 
 
-def final_convert_hardvowels(word):
+def final_convert_hardvowels(word: str) -> str:
     for cyr_con, lat_con in hardvowel.items():
         word = re.sub(fr"{cyr_con}", fr"{lat_con}", word)
     return word
 
-def latinizator(sentense):
-    def conv_with_checking_case(conv, word):
-        if (was_title := word == word.title()) or (was_upper := word == word.upper()):
-            word = word.lower()
-        return conv(word).title() if was_title else (conv(word).upper() if was_upper else conv(word))
+def conv_with_checking_case(conv: Callable[[str], str], word: str):
+    if word == word.title():
+        return conv(word.lower()).title()
+    if word == word.upper():
+        return conv(word.lower()).upper()
+    else:
+        return conv(word)
 
+def latinizator(sentense: str):
     for conv in (
         regularize, 
         convert_jer_or_jerj_plus_vowel,
@@ -66,7 +70,8 @@ def latinizator(sentense):
         convert_softvowels_after_vowels,
         final_convert_hard_consonants,
         final_convert_hardvowels):
-        sentense = re.sub(r"[^\s]+", lambda m: conv_with_checking_case(conv, m.group(0)), sentense)
+        # FIXME: breaks if a titlecase word is divided by unexpected character like За@хар. 
+        sentense = re.sub(r"[^(\s|\-|\"|\'|\«|\()]+", lambda m: conv_with_checking_case(conv, m.group(0)), sentense)
     
-    # assert all(cyr not in word for cyr in "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")
+    # assert all(cyr not in sentense for cyr in "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")
     return sentense

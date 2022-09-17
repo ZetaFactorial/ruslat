@@ -12,6 +12,11 @@ expected_conversion = {
     'рябь': 'riabj',
     'шёлк': 'šëlk',
     'БОЛЬШИЕ БУКВЫ': 'BOLJŠIJE BUKVY',
+    'Э-ээээ-ээээ!': 'E-eeee-eeee!',
+    'ЭЭЭЭ-ээээ-ээээ!': 'EEEE-eeee-eeee!',
+    'Нью-Йорк': 'Nju-Jork',
+    '«Название»': '«Nazvanije»',
+    '(скобочки)': '(skobočki)',
 
     'Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства':
     'Širokaja elektrifikacija južnyh gubernij dast mosčnyj tolčok podjëmu seljskogo hoziajstva',

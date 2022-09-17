@@ -17,8 +17,8 @@ V časčah juga žil by citrus..
 ```
 
 ## Known issues
-- Each word must be in lowercase, titlecase or uppercase. "Mixed case" like "ФсЕМ прИФФкИ в эТОм чЯТиКе" is not allowed, but "ПРИВЕТ" or "Чатик" works. For just regular texts, it is enough.
-- Word 'Я' (not letter, but word) is always being converted to 'Ja'.
+- Each word must be in lowercase, titlecase or uppercase. "Mixed case" like `ФсЕМ прИФФкИ в эТОм чЯТиКе` is not allowed, but `ПРИВЕТ` or `Чатик` works. For regular texts, it is enough.
+- Word 'Я' (not letter, but word) is always being converted to 'Ja', even if it's e.g. a title: `КАК Я ПРОВЕЛ ЛЕТО -> KAK Ja PROVEL LETO`.
 
 ## License
 ruslat is licensed under the MIT License. For the full text, check out `LICENSE`.
