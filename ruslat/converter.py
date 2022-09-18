@@ -17,8 +17,9 @@ def convert_consonant_plus_jerj(word: str) -> str:
     """
     <Cь> -> <Cj>
     """
+    j = consonant_palatalization_symbol_not_before_vowel
     for cyr, lat in consonant.items():
-        word = re.sub(fr"{cyr}ь", fr"{lat}j", word)
+        word = re.sub(fr"{cyr}ь", fr"{lat}{j}", word)
     
     return word 
 

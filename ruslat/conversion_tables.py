@@ -1,35 +1,33 @@
 # These conversions are supposed to be used with regularized cyrillic orthography to prevent
 # conversions like рожь -> rožj, or Цюрих -> Ciurih. See cyrillic_ortho_fix.py.
 
-hardvowel = {
-    'а': 'a',
-    'у': 'u',
-    'э': 'e',
-    'о': 'o',
-    'ы': 'y',
-}
-
-softvowel_after_vowel = {
-    'я': 'ja',
-    'ю': 'ju',
-    'е': 'je',
-    'ё': 'jë',
-    'и': 'i',
-}
-
+# вЬЮга -> vJUga
 softvowel_after_jer_or_jerj = {
     'я': 'ja',
     'ю': 'ju',
     'е': 'je',
     'ё': 'jë',
-    'и': 'ji', # Ильи -> Ilji
+    'и': 'ji', # илЬИ -> ilJI
 }
 
+# деНЬ -> deNJ
+consonant_palatalization_symbol_not_before_vowel = 'j'
+
+# СЮда -> SIUda
 softvowel_after_consonant = {
     'я': 'ia',
     'ю': 'iu',
     'е': 'e',
     'ё': 'ë',
+    'и': 'i',
+}
+
+# Яблоко -> JAbloko
+softvowel_after_vowel = {
+    'я': 'ja',
+    'ю': 'ju',
+    'е': 'je',
+    'ё': 'jë',
     'и': 'i',
 }
 
@@ -55,4 +53,12 @@ consonant = {
     'ч': 'č',
     'ш': 'š',
     'щ': 'sč',
+}
+
+hardvowel = {
+    'а': 'a',
+    'у': 'u',
+    'э': 'e',
+    'о': 'o',
+    'ы': 'y',
 }
