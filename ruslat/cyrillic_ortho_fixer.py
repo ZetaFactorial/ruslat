@@ -12,7 +12,7 @@ regularize_vowel_after_special_consonant = {
     # "Ё": "O",
 }
 
-def regularize(word):
+def regularize(word: str) -> str:
     """
     Regularizing orthography a bit to simplify conversion algorithm.
 

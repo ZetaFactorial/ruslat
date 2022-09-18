@@ -53,7 +53,7 @@ def final_convert_hardvowels(word: str) -> str:
         word = re.sub(fr"{cyr_con}", fr"{lat_con}", word)
     return word
 
-def conv_with_checking_case(conv: Callable[[str], str], word: str):
+def conv_with_checking_case(conv: Callable[[str], str], word: str) -> str:
     if word == word.title():
         return conv(word.lower()).title()
     if word == word.upper():
@@ -61,7 +61,7 @@ def conv_with_checking_case(conv: Callable[[str], str], word: str):
     else:
         return conv(word)
 
-def latinizator(sentense: str):
+def latinizator(sentense: str) -> str:
     for conv in (
         regularize, 
         convert_jer_or_jerj_plus_vowel,
