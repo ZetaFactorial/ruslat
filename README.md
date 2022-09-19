@@ -10,10 +10,9 @@ Using a function
 >>> ruslat.latinizator('Съешь же ещё этих мягких французских булок да выпей чаю.')
 'Sješ že jesčë etih miagkih francuzskih bulok da vypej čaju.'
 ```
-From command line (Windows example)
+As a command line tool (example for Windows)
 ```
-C:\Users\user>py -m ruslat "В чащах юга жил бы цитрус.."
-V časčah juga žil by citrus..
+...
 ```
 
 ## Known issues

@@ -15,7 +15,6 @@ setuptools.setup(
     license="MIT",
     keywords='transliteration romanization cyrillic latin russian',
     packages=setuptools.find_packages(),
-
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
@@ -31,4 +30,9 @@ setuptools.setup(
         'Source': 'https://github.com/ZetaFactorial/ruslat',
         'Tracker': 'https://github.com/ZetaFactorial/ruslat/issues',
     },
+    entry_points = {
+        'console_scripts': [
+            'ruslat=ruslat.command_line:main'
+        ],
+    }
 )
