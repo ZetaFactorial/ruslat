@@ -12,7 +12,8 @@ Using a function
 ```
 As a command line tool (example for Windows)
 ```
-...
+C:\Users\user>ruslat test.txt
+Succesfully latinized test.txt to lat_test.txt
 ```
 
 ## Known issues
