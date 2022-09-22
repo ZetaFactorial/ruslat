@@ -27,11 +27,11 @@ def regularize(word: str) -> str:
     """
     for con in special_consonants:
         for oldvow, newvow in regularize_vowel_after_special_consonant.items():
-            word = re.sub(fr"{con}{oldvow}", fr"{con}{newvow}", word)
+            word = re.sub(f"{con}{oldvow}", f"{con}{newvow}", word)
 
-    word = re.sub(r"[ьъ]о", lambda x: f"{x.group()[0]}ё", word)
+    word = re.sub("ьо", "ьё", word)
 
     for con in special_consonants:
-        word = re.sub(fr"{con}ь", fr"{con}", word)
+        word = re.sub(f"{con}ь", con, word)
 
     return word

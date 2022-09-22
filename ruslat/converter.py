@@ -9,8 +9,8 @@ def convert_jer_or_jerj_plus_vowel(word: str) -> str:
     <ь/ъ V> -> <j V>
     """
     for cyr, lat in softvowel_after_jer_or_jerj.items():
-        word = re.sub(fr"[ьъ]{cyr}", fr"{lat}", word)
-    
+        word = re.sub(fr"[ьъ]{cyr}", f"{lat}", word)
+
     return word 
 
 def convert_consonant_plus_jerj(word: str) -> str:
@@ -19,9 +19,10 @@ def convert_consonant_plus_jerj(word: str) -> str:
     """
     j = consonant_palatalization_symbol_not_before_vowel
     for cyr, lat in consonant.items():
-        word = re.sub(fr"{cyr}ь", fr"{lat}{j}", word)
+        
+        word = re.sub(f"{cyr}ь", f"{lat}{j}", word)
     
-    return word 
+    return word
 
 def convert_consonant_plus_softvowel(word: str) -> str:
     """
@@ -33,25 +34,25 @@ def convert_consonant_plus_softvowel(word: str) -> str:
     """
     for cyr_vow, lat_vow in softvowel_after_consonant.items():
         for cyr_con, lat_con in consonant.items():
-            word = re.sub(fr"{cyr_con}{cyr_vow}", fr"{lat_con}{lat_vow}", word)
-    return word 
+            word = re.sub(f"{cyr_con}{cyr_vow}", f"{lat_con}{lat_vow}", word)
+    return word
 
 def convert_softvowels_after_vowels(word: str) -> str:
     """
     <V е/ё/ю/я> -> <V je/jë/ju/ja> (V is either vowel or nothing; jer/jerj are not considered vowels.)
     """
     for cyr, lat in softvowel_after_vowel.items():
-        word = re.sub(fr"{cyr}", fr"{lat}", word)
-    return word 
+        word = re.sub(cyr, lat, word)
+    return word
 
 def final_convert_hard_consonants(word: str) -> str:
     for cyr_con, lat_con in consonant.items():
-        word = re.sub(fr"{cyr_con}", fr"{lat_con}", word)
+        word = re.sub(cyr_con, lat_con, word)
     return word 
 
-def final_convert_hardvowels(word: str) -> str:
+def final_convert_hardvowels(word: str) -> str: 
     for cyr_con, lat_con in hardvowel.items():
-        word = re.sub(fr"{cyr_con}", fr"{lat_con}", word)
+        word = re.sub(cyr_con, lat_con, word)
     return word
 
 def conv_with_checking_case(conv: Callable[[str], str], word: str) -> str:
@@ -72,7 +73,7 @@ def latinizator(sentense: str) -> str:
         final_convert_hard_consonants,
         final_convert_hardvowels):
         # FIXME: breaks if a titlecase word is divided by unexpected character like За@хар. 
-        sentense = re.sub(r"[^(\s|\-|\"|\'|\«|\()]+", lambda m: conv_with_checking_case(conv, m.group(0)), sentense)
+        sentense = re.sub(r"[^(\s|\-|\"|'|«)]+", lambda m: conv_with_checking_case(conv, m.group(0)), sentense)
     
     # assert all(cyr not in sentense for cyr in "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")
     return sentense
