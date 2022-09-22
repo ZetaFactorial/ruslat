@@ -6,8 +6,8 @@ pth = Path(__file__).absolute().parent
 
 start_time = time.perf_counter()
 
-with open(pth/'cyrillic_text.md', 'r', encoding='utf-8') as cyr,\
-    open(pth/'latin_text.md', 'w', encoding='utf-8') as lat:
+with open(pth/'Обломов.txt', 'r', encoding='utf-8') as cyr,\
+    open(pth/'Oblomov.txt', 'w', encoding='utf-8') as lat:
     for line in cyr:
         lat.write(ruslat.latinizator(line))
 
