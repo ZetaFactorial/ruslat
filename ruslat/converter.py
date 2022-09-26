@@ -1,4 +1,5 @@
 import re
+import regex
 from typing import Callable
 
 from ruslat.conversion_tables import *
@@ -56,24 +57,22 @@ def final_convert_hardvowels(word: str) -> str:
     return word
 
 def conv_with_checking_case(conv: Callable[[str], str], word: str) -> str:
-    if word == word.title():
+    if word.istitle():
         return conv(word.lower()).title()
-    if word == word.upper():
+    if word.isupper():
         return conv(word.lower()).upper()
     else:
         return conv(word)
 
 def latinizator(sentense: str) -> str:
-    for conv in (
-        regularize, 
-        convert_jer_or_jerj_plus_vowel,
-        convert_consonant_plus_jerj,
-        convert_consonant_plus_softvowel,
-        convert_softvowels_after_vowels,
-        final_convert_hard_consonants,
-        final_convert_hardvowels):
-        # FIXME: breaks if a titlecase word is divided by unexpected character like За@хар. 
-        sentense = re.sub(r"[^(\s|\-|\"|'|«)]+", lambda m: conv_with_checking_case(conv, m.group(0)), sentense)
+    for conv in (regularize, 
+                 convert_jer_or_jerj_plus_vowel,
+                 convert_consonant_plus_jerj,
+                 convert_consonant_plus_softvowel,
+                 convert_softvowels_after_vowels,
+                 final_convert_hard_consonants,
+                 final_convert_hardvowels):
+        sentense = regex.sub(r"\p{L}+", lambda m: conv_with_checking_case(conv, m.group(0)), sentense)
     
     # assert all(cyr not in sentense for cyr in "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")
     return sentense
