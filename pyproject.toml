@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "ruslat"
+version = "1.2.0"
+description = "Transliterator for Russian Latin Alphabet"
+authors = ["Zeta Factorial"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/ZetaFactorial/ruslat"
+keywords = ["russian", "transliteration", "romanization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: Russian",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.scripts]
+ruslat = "ruslat.command_line:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+regex = "^2022.9.13"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
